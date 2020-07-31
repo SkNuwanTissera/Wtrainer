@@ -39,7 +39,6 @@ class Course(Base):
     ContentDuration = Column(Float)
     PublishedTimestamp = Column(DateTime)
     Subject = Column(String)
-    Author = Column(String)
 
 
 # Author Dimension
@@ -112,7 +111,6 @@ for i, result in enumerate(obj['course_id']):
     date = datetime.strptime(obj['published_timestamp'][str(i)], '%Y-%m-%dT%H:%M:%SZ')
     course_row['PublishedTimestamp'] = date.date()
     course_row['Subject'] = str(obj['subject'][str(i)])
-    course_row['Author'] = str(obj['author'][str(i)])
 
     sales_row['SalesId'] = i + 1
     sales_row['CourseId'] = str(obj['course_id'][str(i)])
