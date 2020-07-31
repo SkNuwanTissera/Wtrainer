@@ -1,19 +1,26 @@
 import json
+import os
 from datetime import datetime, timedelta
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import *
 
+# Removing current DB file
+os.remove("star.db")
+print("\nCurrent DB File Removed!")
+
 engine = create_engine('sqlite:///star.db')
 Base = declarative_base()
 
 # read file
+print('\nReading JSON ...')
 with open('course_data.json', 'r') as myfile:
     data = myfile.read()
 
 # parse file
 obj = json.loads(data)
+
 
 # Defining the schemas
 
@@ -65,6 +72,7 @@ class Sales(Base):
     NumOfSubscribers = Column(Integer)
     Price = Column(Float)
 
+
 # Drop current tables
 
 # Course.__table__.drop(engine)
@@ -73,6 +81,7 @@ class Sales(Base):
 # Sales.__table__.drop(engine)
 
 # Create new tables
+print('Creating new tables ...')
 
 Course.__table__.create(bind=engine, checkfirst=true)
 Author.__table__.create(bind=engine, checkfirst=true)
@@ -80,6 +89,7 @@ Date.__table__.create(bind=engine, checkfirst=true)
 Sales.__table__.create(bind=engine, checkfirst=true)
 
 # Data transformation
+print('Data Transformation on Process ...')
 
 sales_fact, date_dimension, author_dimension, course_dimension = [], [], [], []
 
@@ -130,6 +140,7 @@ for i, result in enumerate(obj['course_id']):
     author_dimension.append(author_row)
 
 # Load to database
+print('Loading data to database ...')
 
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -151,3 +162,5 @@ for salesData in sales_fact:
     session.add(row)
 
 session.commit()
+
+print("\nSuccessfully Completed The Process !!")
