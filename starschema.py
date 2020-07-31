@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import *
 
-engine = create_engine('sqlite:///star3.db')
+engine = create_engine('sqlite:///star.db')
 Base = declarative_base()
 
 # read file
