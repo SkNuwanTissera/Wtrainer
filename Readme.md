@@ -10,5 +10,5 @@
 ## Run
 - Run `python3 starschema.py`
 - Check for file `star.db` 
-- `sqlite3 star.db`
+- Open a terminal and type `sqlite3 star.db`
 - Run the queries in the `queries.sql` one by one and check the results.
