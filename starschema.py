@@ -65,14 +65,14 @@ class Sales(Base):
     NumOfSubscribers = Column(Integer)
     Price = Column(Float)
 
-# Drop current databases
+# Drop current tables
 
-Course.__table__.drop(engine)
-Author.__table__.drop(engine)
-Date.__table__.drop(engine)
-Sales.__table__.drop(engine)
+# Course.__table__.drop(engine)
+# Author.__table__.drop(engine)
+# Date.__table__.drop(engine)
+# Sales.__table__.drop(engine)
 
-# Create new databases
+# Create new tables
 
 Course.__table__.create(bind=engine, checkfirst=true)
 Author.__table__.create(bind=engine, checkfirst=true)
