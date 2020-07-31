@@ -137,7 +137,7 @@ for i, result in enumerate(obj['course_id']):
     date_dimension.append(date_row)
     author_dimension.append(author_row)
 
-# Load to database
+# Load to database - seeding
 print('Loading data to database ...')
 
 Session = sessionmaker(bind=engine)
