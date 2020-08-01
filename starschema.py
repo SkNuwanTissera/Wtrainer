@@ -1,3 +1,11 @@
+#######################################################################
+# READ THIS BEFORE EXECUTION
+#######################################################################
+# This script will delete the current db file and create a new db file
+# with all new data in JSON. This has an limitation when it comes to
+# adding more data that needs to be append to the database.
+########################################################################
+
 import json
 import os
 from datetime import datetime, timedelta
@@ -39,7 +47,6 @@ class Course(Base):
     ContentDuration = Column(Float)
     PublishedTimestamp = Column(DateTime)
     Subject = Column(String)
-
 
 # Author Dimension
 class Author(Base):
