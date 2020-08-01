@@ -1,5 +1,16 @@
 # W- Trainer
 
+## Design
+
+This contains one fact table and 3 dimension tables. I have used primary keys and Surrogate keys here. Surrogate keys (SK) protect the system from sudden administrative changes. Another advantage of SK is, It enables us to add rows to dimensions that do not exist in the system now. SK’s can improve query processing. 
+
+A fact table is a table that contains the measures of interest. Here the measure is Addictive type. We are mainly focussing on price and no of subscribers here in sales fact. 
+Granularity is most important when it comes to facts. E.g: "Sales amounts, by product, by month.”
+
+## Schema
+
+![Image](/wtrainer.png)
+
 ## Prerequisites
 - install python
 - install sqlite/sqlite3
@@ -16,13 +27,6 @@
 ## Documentation
 
 - Refer `Wtrainer.pdf`
-
-## Design
-
-This contains one fact table and 3 dimension tables. I have used primary keys and Surrogate keys here. Surrogate keys (SK) protect the system from sudden administrative changes. Another advantage of SK is, It enables us to add rows to dimensions that do not exist in the system now. SK’s can improve query processing. 
-
-A fact table is a table that contains the measures of interest. Here the measure is Addictive type. We are mainly focussing on price and no of subscribers here in sales fact. 
-Granularity is most important when it comes to facts. E.g: "Sales amounts, by product, by month.”
 
 ## Improvements
 - Row and page compression
